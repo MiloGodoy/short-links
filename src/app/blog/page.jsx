@@ -8,6 +8,8 @@ async function getData() {
 
   const res = await fetch(endpoint, {next: {revalidate: 10}})
 
+  // const res = await fetch(endpoint, { cache: 'no-store' })
+
   if(!res.ok) {
     throw new Error("Failed to fetch data")
   }
