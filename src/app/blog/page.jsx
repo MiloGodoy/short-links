@@ -1,8 +1,8 @@
 //'use client'
-import getDomain from "@app/lib/getDomain"
+import getDomain from "../lib/getDomain"
 
 async function getData() {
-  
+
   const domain = getDomain()
   const endpoint = `${domain}/api/posts`
 
