@@ -1,5 +1,6 @@
 //'use client'
 import getDomain from "../lib/getDomain"
+import BlogCard from "./card"
 
 async function getData() {
 
@@ -25,15 +26,15 @@ async function getData() {
 
 export default async function BlogPage() {
   const data = await getData()
+  console.log(data)
   const items = data && data.items ? [...data.items] : []
   console.log(items)
-  console.log("ENV: ", process.env.NEXT_PUBLIC_VERCEL_URL)
   return (
     <div>
       <h1>Hello World</h1>
       <p>Posts: </p>
       {items && items.map((item, idx) => {
-        return <li key={`post-${idx}`}>{item.title}</li>
+        return <BlogCard title={ item.title } key={`post-${idx}`}  />
       })}
     </div>
   )
